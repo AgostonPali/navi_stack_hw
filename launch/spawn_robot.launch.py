@@ -104,6 +104,8 @@ def generate_launch_description():
             #"/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V",
             "/camera/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo",
             "imu@sensor_msgs/msg/Imu[gz.msgs.IMU",
+            "/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan",
+            "/scan/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked",
         ],
         output="screen",
         parameters=[
