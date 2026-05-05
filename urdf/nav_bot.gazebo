@@ -47,6 +47,7 @@
     </plugin>
   </gazebo>
 
+<!--Camera-->
  <gazebo reference="camera_link">
     <sensor name="camera" type="camera">
       <camera>
@@ -75,6 +76,18 @@
       <update_rate>10</update_rate>
       <visualize>true</visualize>
       <topic>camera/image</topic>
+    </sensor>
+  </gazebo>
+
+<!--IMU-->
+  <gazebo reference="imu_link">
+    <sensor name="imu" type="imu">
+      <always_on>1</always_on>
+      <update_rate>50</update_rate>
+      <visualize>true</visualize>
+      <topic>imu</topic>
+      <enable_metrics>true</enable_metrics>
+      <gz_frame_id>imu_link</gz_frame_id>
     </sensor>
   </gazebo>
 

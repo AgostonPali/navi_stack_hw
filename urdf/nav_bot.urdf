@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 
-<robot name="mogi_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="nav_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find navi_stack_hw)/urdf/materials.xacro" />
 
@@ -292,6 +292,17 @@
   </joint>
 
   <link name="camera_link_optical">
+  </link>
+
+
+  <!--! IMU -->
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="imu_link" />
+  </joint>
+
+  <link name="imu_link">
   </link>
 
 
