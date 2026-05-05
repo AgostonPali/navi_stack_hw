@@ -148,6 +148,20 @@ def generate_launch_description():
              ]
     )
 
+    trajectory_odom_topic_node = Node(
+        package='mogi_trajectory_server',
+        executable='mogi_trajectory_server_topic_based',
+        name='mogi_trajectory_server_odom_topic',
+        parameters=[{'trajectory_topic': 'trajectory_raw'},
+                    {'odometry_topic': 'odom'}]
+    )
+
+    trajectory_node = Node(
+        package='mogi_trajectory_server',
+        executable='mogi_trajectory_server',
+        name='mogi_trajectory_server'
+    )
+
     launchDescriptionObject = LaunchDescription()
 
     launchDescriptionObject.add_action(rviz_launch_arg)
@@ -162,5 +176,7 @@ def generate_launch_description():
     launchDescriptionObject.add_action(gz_image_bridge_node)
     launchDescriptionObject.add_action(relay_camera_info_node)
     launchDescriptionObject.add_action(ekf_node)
+    launchDescriptionObject.add_action(trajectory_odom_topic_node)
+    launchDescriptionObject.add_action(trajectory_node)
 
     return launchDescriptionObject
