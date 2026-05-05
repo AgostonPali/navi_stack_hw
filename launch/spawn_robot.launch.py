@@ -101,7 +101,7 @@ def generate_launch_description():
             "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
             "/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry",
             "/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model",
-            "/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V",
+            #"/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V",
             "/camera/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo",
             "imu@sensor_msgs/msg/Imu[gz.msgs.IMU",
         ],
@@ -137,6 +137,17 @@ def generate_launch_description():
         ]
     )
 
+    ekf_node = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_filter_node',
+        output='screen',
+        parameters=[
+            os.path.join(pkg_navi_stack_hw, 'config', 'ekf.yaml'),
+            {'use_sim_time': True},
+             ]
+    )
+
     launchDescriptionObject = LaunchDescription()
 
     launchDescriptionObject.add_action(rviz_launch_arg)
@@ -150,5 +161,6 @@ def generate_launch_description():
     launchDescriptionObject.add_action(gz_bridge_node)
     launchDescriptionObject.add_action(gz_image_bridge_node)
     launchDescriptionObject.add_action(relay_camera_info_node)
+    launchDescriptionObject.add_action(ekf_node)
 
     return launchDescriptionObject
