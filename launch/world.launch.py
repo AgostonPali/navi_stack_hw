@@ -1,10 +1,9 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, AppendEnvironmentVariable
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import  LaunchConfiguration, PathJoinSubstitution, TextSubstitution
-
 
 def generate_launch_description():
 
@@ -17,12 +16,10 @@ def generate_launch_description():
 
     # Add your own gazebo library path here
     pkg_navi_stack_hw = get_package_share_directory('navi_stack_hw')
+    # 1. For hospital models:
     gazebo_models_path = os.path.join(pkg_navi_stack_hw, 'models')
-    # os.environ["GZ_SIM_RESOURCE_PATH"] += os.pathsep + gazebo_models_path
-    if 'GZ_SIM_RESOURCE_PATH' in os.environ:
-        os.environ['GZ_SIM_RESOURCE_PATH'] += os.pathsep + gazebo_models_path
-    else:
-        os.environ['GZ_SIM_RESOURCE_PATH'] = gazebo_models_path
+    # 2. For the robot 'package:':
+    ros_share_path = os.path.dirname(pkg_navi_stack_hw)
 
     gazebo_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -39,6 +36,14 @@ def generate_launch_description():
     )
 
     launchDescriptionObject = LaunchDescription()
+
+    # Setting environment variables in ROS 2 style
+    launchDescriptionObject.add_action(
+        AppendEnvironmentVariable('GZ_SIM_RESOURCE_PATH', f"{gazebo_models_path}:{ros_share_path}")
+    )
+    launchDescriptionObject.add_action(
+        AppendEnvironmentVariable('SDF_PATH', gazebo_models_path)
+    )
 
     launchDescriptionObject.add_action(world_arg)
     launchDescriptionObject.add_action(gazebo_launch)
