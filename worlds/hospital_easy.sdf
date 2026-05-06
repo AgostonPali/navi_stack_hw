@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.6">
+  <world name="hospital_easy_world">
+    <gravity>0 0 -9.8</gravity>
+    <physics default="0" name="default_physics" type="ode">
+      <max_step_size>0.008</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.6 0.6 0.6 1</ambient>
+      <background>0.4 0.4 0.4 1</background>
+      <shadows>false</shadows>
+    </scene>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun</uri>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri>
+      <pose>0 0 -0.1 0 -0 0</pose>
+    </include>
+
+    <!-- Épület alapstruktúra (Falak, Padló, Plafon) -->
+    <model name="aws_robomaker_hospital_floor_01_floor_1">
+      <include>
+        <uri>model://aws_robomaker_hospital_floor_01_floor</uri>
+        <static>true</static>
+        <pose>-0.001425 -0.014447 0 0 -0 0</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_hospital_floor_01_walls_1">
+      <include>
+        <uri>model://aws_robomaker_hospital_floor_01_walls</uri>
+        <static>true</static>
+        <pose>-0.013823 -0.013783 0 0 -0 0</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_hospital_floor_01_ceiling_1">
+      <include>
+        <uri>model://aws_robomaker_hospital_floor_01_ceiling</uri>
+        <static>true</static>
+        <pose>0.016552 0.050728 0 0 -0 0</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_hospital_ramp_01_1">
+      <include>
+        <uri>model://aws_robomaker_hospital_ramp_01</uri>
+        <static>true</static>
+        <pose>-1.70996 16.3685 0 0 -0 0</pose>
+      </include>
+    </model>
+
+    <!-- Beépített bútorzat és Liftek -->
+    <model name="aws_robomaker_hospital_nursesstation_01_1">
+      <include>
+        <uri>model://aws_robomaker_hospital_nursesstation_01</uri>
+        <static>true</static>
+        <pose>0 1.5 0 0 -0 0</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_hospital_elevator_01_portal_1">
+      <include>
+        <uri>model://aws_robomaker_hospital_elevator_01_portal</uri>
+        <static>true</static>
+        <pose>-1.50654 19.4813 0.19 0 -0 0</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_hospital_elevator_01_portal_2">
+      <include>
+        <uri>model://aws_robomaker_hospital_elevator_01_portal</uri>
+        <static>true</static>
+        <pose>1.51134 19.487 0.19 0 -0 0</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_hospital_elevator_01_car_1">
+      <include>
+        <uri>model://aws_robomaker_hospital_elevator_01_car</uri>
+        <static>true</static>
+        <pose>-1.49587 19.35 0.19 0 -0 0</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_hospital_elevator_01_car_2">
+      <include>
+        <uri>model://aws_robomaker_hospital_elevator_01_car</uri>
+        <static>true</static>
+        <pose>1.5407 19.35 0.19 0 -0 0</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_hospital_elevator_01_door_1">
+      <include>
+        <uri>model://aws_robomaker_hospital_elevator_01_door</uri>
+        <static>true</static>
+        <pose>-1.51 19.35 0.19 0 -0 0</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_hospital_elevator_01_door_2">
+      <include>
+        <uri>model://aws_robomaker_hospital_elevator_01_door</uri>
+        <static>true</static>
+        <pose>1.52843 19.3627 0.19 0 -0 0</pose>
+      </include>
+    </model>
+
+    <!-- Fő akadályok (Kórházi ágyak és nagy szekrények) -->
+    <model name="MalePatientBed_1">
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/MalePatientBed</uri>
+        <static>true</static>
+        <pose>11.3771 -7.38891 0.001658 -1e-06 1e-06 3.11598</pose>
+      </include>
+    </model>
+    <model name="TrolleyBedPatient_1">
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/TrolleyBedPatient</uri>
+        <static>true</static>
+        <pose>-1.83202 -19.2612 0 0 -0 0</pose>
+      </include>
+    </model>
+    <model name="TrolleyBed_1">
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/TrolleyBed</uri>
+        <static>true</static>
+        <pose>4.85934 -4.87229 -7.57769e+08 0 -1e-06 0</pose>
+      </include>
+    </model>
+    
+    <!-- Fali szekrények, konyha -->
+    <model name="aws_robomaker_residential_KitchenCabinet_01_1">
+      <include>
+        <uri>model://aws_robomaker_residential_KitchenCabinet_01</uri>
+        <static>true</static>
+        <pose>-11.1379 -25.6941 0 0 -0 0</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_residential_Refrigerator_01_1">
+      <include>
+        <uri>model://aws_robomaker_residential_Refrigerator_01</uri>
+        <static>true</static>
+        <pose>-9.28238 -24.5015 0 0 -0 0</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_residential_Sofa_01_1">
+      <include>
+        <uri>model://aws_robomaker_residential_Sofa_01</uri>
+        <static>true</static>
+        <pose>-11.077 -30.5544 -1e-05 2.6e-05 -3e-06 1.56984</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_residential_SofaB_01_1">
+      <include>
+        <uri>model://aws_robomaker_residential_SofaB_01</uri>
+        <static>true</static>
+        <pose>-10.8238 -28.6662 -5e-06 -1.3e-05 -2e-06 -1.56116</pose>
+      </include>
+    </model>
+    <model name="aws_robomaker_residential_SofaB_01_2">
+      <include>
+        <uri>model://aws_robomaker_residential_SofaB_01</uri>
+        <static>true</static>
+        <pose>-9.73697 -28.6538 -3e-06 1.3e-05 -4e-06 -1.56077</pose>
+      </include>
+    </model>
+    
+    <!-- Tároló állványok -->
+    <model name="StorageRack_1">
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/StorageRack</uri>
+        <static>true</static>
+        <pose>9.07005 -10.3582 -7.57769e+08 -2e-06 0 0</pose>
+      </include>
+    </model>
+    <model name="StorageRack_3">
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/StorageRack</uri>
+        <static>true</static>
+        <pose>-10.1178 -10.4694 -0 0 -0 0</pose>
+      </include>
+    </model>
+
+  </world>
+</sdf>
