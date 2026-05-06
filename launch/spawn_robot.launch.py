@@ -11,8 +11,8 @@ def generate_launch_description():
 
     pkg_navi_stack_hw = get_package_share_directory('navi_stack_hw')
 
-    gazebo_models_path, ignore_last_dir = os.path.split(pkg_navi_stack_hw)
-    os.environ["GZ_SIM_RESOURCE_PATH"] += os.pathsep + gazebo_models_path
+    # gazebo_models_path, ignore_last_dir = os.path.split(pkg_navi_stack_hw)
+    # os.environ["GZ_SIM_RESOURCE_PATH"] += os.pathsep + gazebo_models_path
 
     rviz_launch_arg = DeclareLaunchArgument(
         'rviz', default_value='true',
@@ -20,7 +20,7 @@ def generate_launch_description():
     )
 
     world_arg = DeclareLaunchArgument(
-        'world', default_value='world.sdf',
+        'world', default_value='hospital.sdf',
         description='Name of the Gazebo world file to load'
     )
 
