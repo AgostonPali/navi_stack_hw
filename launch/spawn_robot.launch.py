@@ -29,6 +29,22 @@ def generate_launch_description():
         description='Name of the URDF description to load'
     )
 
+    x_arg = DeclareLaunchArgument(
+        'x', default_value='0.0',
+        description='x coordinate of spawned robot'
+    )
+
+    y_arg = DeclareLaunchArgument(
+        'y', default_value='0.7',
+        description='y coordinate of spawned robot'
+    )
+
+    yaw_arg = DeclareLaunchArgument(
+        'yaw', default_value='0.0',
+        description='yaw angle of spawned robot'
+    )
+
+
     # Define the path to your URDF or Xacro file
     urdf_file_path = PathJoinSubstitution([
         pkg_navi_stack_hw,  # Replace with your package name
@@ -61,9 +77,12 @@ def generate_launch_description():
         package="ros_gz_sim",
         executable="create",
         arguments=[
-            "-name", "my_robot",
+           "-name", "my_robot",
             "-topic", "robot_description",
-            "-x", "0.0", "-y", "0.7", "-z", "0.5", "-Y", "0"  # Initial spawn position
+            "-x", LaunchConfiguration('x'), 
+            "-y", LaunchConfiguration('y'), 
+            "-z", "0.5", 
+            "-Y", LaunchConfiguration('yaw')
         ],
         output="screen",
         parameters=[
@@ -79,10 +98,6 @@ def generate_launch_description():
         parameters=[
             {'robot_description': Command(['xacro', ' ', urdf_file_path]),
              'use_sim_time': True},
-        ],
-        remappings=[
-            ('/tf', 'tf'),
-            ('/tf_static', 'tf_static')
         ]
     )
 
@@ -155,8 +170,11 @@ def generate_launch_description():
     launchDescriptionObject.add_action(rviz_launch_arg)
     launchDescriptionObject.add_action(world_arg)
     launchDescriptionObject.add_action(model_arg)
+    launchDescriptionObject.add_action(x_arg)
+    launchDescriptionObject.add_action(y_arg)
+    launchDescriptionObject.add_action(yaw_arg)
     launchDescriptionObject.add_action(world_launch)
-    launchDescriptionObject.add_action(rviz_node)
+    #launchDescriptionObject.add_action(rviz_node)
     launchDescriptionObject.add_action(spawn_urdf_node)
     launchDescriptionObject.add_action(robot_state_publisher_node)
     #launchDescriptionObject.add_action(joint_state_publisher_gui_node)
