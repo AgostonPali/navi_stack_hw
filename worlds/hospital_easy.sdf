@@ -192,86 +192,52 @@
 
     <!--Mozgó karakterek -->
     <actor name="walking_human">
-      <pose>0 1 0.51 0 0 -1.5707</pose>
-      <skin><filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename><scale>1.0</scale></skin>
-      <animation name="walking"><filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename><scale>1.0</scale><interpolate_x>true</interpolate_x></animation>
-      <script>
-        <loop>true</loop>
-        <delay_start>0.0</delay_start>
-        <auto_start>true</auto_start>
-        <trajectory id="0" type="walking">
-          <waypoint><time>0.0</time><pose>0 1 0.51 0 0 0</pose></waypoint>
-          <waypoint><time>5.0</time><pose>5 1 0.51 0 0 0</pose></waypoint>
-          <waypoint><time>6.0</time><pose>5 7 0.51 0 0 1.5707</pose></waypoint>
-          <waypoint><time>10.0</time><pose>-5 7 0.51 0 0 3.1415</pose></waypoint>
-          <waypoint><time>6.0</time><pose>-5 1 0.51 0 0 -1.5707</pose></waypoint>
-        </trajectory>
-      </script>
-    </actor>
-
-    <actor name="walking_human_1">
-      <pose>0 4.0 0.51 0 0 -1.5707</pose>
+      <pose>0 0 0.51 0 0 0</pose>
       <skin><filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename><scale>1.0</scale></skin>
       <animation name="walking"><filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename><scale>1.0</scale><interpolate_x>true</interpolate_x></animation>
       <script>
         <loop>true</loop><delay_start>0.0</delay_start><auto_start>true</auto_start>
         <trajectory id="0" type="walking">
-          <waypoint><time>0.0</time><pose>0 4.0 0.51 0 0 -1.5707</pose></waypoint>
-          <waypoint><time>6.0</time><pose>0 -2.0 0.51 0 0 -1.5707</pose></waypoint>
-          <waypoint><time>6.5</time><pose>0 -2.0 0.51 0 0 1.5707</pose></waypoint>
-          <waypoint><time>12.5</time><pose>0 4.0 0.51 0 0 1.5707</pose></waypoint>
-          <waypoint><time>13.0</time><pose>0 4.0 0.51 0 0 -1.5707</pose></waypoint>
+          <waypoint><time>0.0</time><pose>5 1 0.51 0 0 0</pose></waypoint>
+          <waypoint><time>0.1</time><pose>5 1 0.51 0 0 1.5707</pose></waypoint>
+          <waypoint><time>6.5</time><pose>5 7 0.51 0 0 1.5707</pose></waypoint>
+          <waypoint><time>6.51</time><pose>5 7 0.51 0 0 3.1415</pose></waypoint>
+          <waypoint><time>17.0</time><pose>-5 7 0.51 0 0 3.1415</pose></waypoint>
+          <waypoint><time>17.01</time><pose>-5 7 0.51 0 0 -1.5707</pose></waypoint>
+          <waypoint><time>23.5</time><pose>-5 1 0.51 0 0 -1.5707</pose></waypoint>  
+          <waypoint><time>23.51</time><pose>-5 1 0.51 0 0 0</pose></waypoint>
+          <waypoint><time>34.0</time><pose>5 1 0.51 0 0 0</pose></waypoint>
         </trajectory>
       </script>
     </actor>
 
-    <actor name="walking_human_2">
-      <pose>1.5 1.0 0.51 0 0 3.1415</pose>
+    <actor name="walking_human_1">
+      <pose>0 0 0.51 0 0 0</pose>
       <skin><filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename><scale>1.0</scale></skin>
-      <animation name="walking"><filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename><scale>1.0</scale><interpolate_x>true</interpolate_x></animation>
+      <animation name="walking"><filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename><scale>1.0</scale><interpolate_x>false</interpolate_x></animation>
       <script>
-        <loop>true</loop><delay_start>2.0</delay_start><auto_start>true</auto_start>
+        <loop>true</loop><delay_start>0.0</delay_start><auto_start>true</auto_start>
         <trajectory id="0" type="walking">
-          <waypoint><time>0.0</time><pose>1.5 1.0 0.51 0 0 3.1415</pose></waypoint>
-          <waypoint><time>3.0</time><pose>-1.5 1.0 0.51 0 0 3.1415</pose></waypoint>
-          <waypoint><time>3.5</time><pose>-1.5 1.0 0.51 0 0 0.0</pose></waypoint>
-          <waypoint><time>6.5</time><pose>1.5 1.0 0.51 0 0 0.0</pose></waypoint>
-          <waypoint><time>7.0</time><pose>1.5 1.0 0.51 0 0 3.1415</pose></waypoint>
+          <waypoint><time>0.0</time><pose>-5.5 8 0.51 0 0 0</pose></waypoint>
+          <waypoint><time>11</time><pose>5.5 8 0.51 0 0 0</pose></waypoint>
+          <waypoint><time>11.01</time><pose>5.5 8 0.51 0 0 -1.5707</pose></waypoint>
+          <waypoint><time>43.5</time><pose>5.5 -24.35 0.51 0 0 -1.5707</pose></waypoint>
+          <waypoint><time>43.51</time><pose>5.5 -24.35 0.51 0 0 3.1415</pose></waypoint>
+          <waypoint><time>55</time><pose>-5.5 -24.35 0.51 0 0 3.1415</pose></waypoint>
+          <waypoint><time>55.01</time><pose>-5.5 -24.35 0.51 0 0 1.5707</pose></waypoint>  
+          <waypoint><time>87.5</time><pose>-5.5 8 0.51 0 0 1.5707</pose></waypoint>
+          <waypoint><time>87.51</time><pose>-5.5 8 0.51 0 0 0</pose></waypoint>
         </trajectory>
       </script>
     </actor>
 
-    <actor name="walking_human_3">
-      <pose>0.0 5.0 0.51 0 0 -1.5707</pose>
-      <skin><filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename><scale>1.0</scale></skin>
-      <animation name="walking"><filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename><scale>1.0</scale><interpolate_x>true</interpolate_x></animation>
-      <script>
-        <loop>true</loop><delay_start>1.5</delay_start><auto_start>true</auto_start>
-        <trajectory id="0" type="walking">
-          <waypoint><time>0.0</time><pose>0.0 5.0 0.51 0 0 -1.5707</pose></waypoint>
-          <waypoint><time>4.0</time><pose>0.0 2.0 0.51 0 0 -1.5707</pose></waypoint>
-          <waypoint><time>4.5</time><pose>0.0 2.0 0.51 0 0 1.5707</pose></waypoint>
-          <waypoint><time>8.5</time><pose>0.0 5.0 0.51 0 0 1.5707</pose></waypoint>
-          <waypoint><time>9.0</time><pose>0.0 5.0 0.51 0 0 -1.5707</pose></waypoint>
-        </trajectory>
-      </script>
-    </actor>
+    <!--Yaw (elfordulás):  0: Pozitív X irány
 
-    <actor name="walking_human_4">
-      <pose>0.0 -4.0 0.51 0 0 -1.5707</pose>
-      <skin><filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename><scale>1.0</scale></skin>
-      <animation name="walking"><filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename><scale>1.0</scale><interpolate_x>true</interpolate_x></animation>
-      <script>
-        <loop>true</loop><delay_start>4.0</delay_start><auto_start>true</auto_start>
-        <trajectory id="0" type="walking">
-          <waypoint><time>0.0</time><pose>0.0 -4.0 0.51 0 0 -1.5707</pose></waypoint>
-          <waypoint><time>10.0</time><pose>0.0 -8.0 0.51 0 0 -1.5707</pose></waypoint>
-          <waypoint><time>10.5</time><pose>0.0 -8.0 0.51 0 0 1.5707</pose></waypoint>
-          <waypoint><time>20.5</time><pose>0.0 -4.0 0.51 0 0 1.5707</pose></waypoint>
-          <waypoint><time>21.0</time><pose>0.0 -4.0 0.51 0 0 -1.5707</pose></waypoint>
-        </trajectory>
-      </script>
-    </actor> 
+                      1.5707: Pozitív Y irány
+
+                      3.1415: Negatív X irány
+
+                     -1.5707: Negatív Y irány -->
 
   </world>
 </sdf>
