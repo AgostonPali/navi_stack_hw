@@ -167,7 +167,7 @@ def generate_launch_description():
 
     launchDescriptionObject = LaunchDescription()
 
-    launchDescriptionObject.add_action(rviz_launch_arg)
+    #launchDescriptionObject.add_action(rviz_launch_arg)
     launchDescriptionObject.add_action(world_arg)
     launchDescriptionObject.add_action(model_arg)
     launchDescriptionObject.add_action(x_arg)
