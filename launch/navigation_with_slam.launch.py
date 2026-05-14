@@ -51,7 +51,7 @@ def generate_launch_description():
     slam_toolbox_params_path = os.path.join(
         get_package_share_directory('navi_stack_hw'),
         'config',
-        'slam_toolbox_mapping.yaml'
+        'slam_toolbox_localization.yaml'
     )
 
     # Launch rviz
